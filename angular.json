@@ -30,8 +30,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss",
+              "../artifacts/node_modules/bootstrap/dist/css/bootstrap.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "../artifacts/node_modules/bootstrap/scss"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -93,8 +99,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+     
             ],
+        
             "scripts": []
           }
         }
