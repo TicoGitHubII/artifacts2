@@ -6,7 +6,30 @@
 <header>
   <app-header></app-header>
 </header>
-<section>
+<router-outlet></router-outlet>
+<!-- <section>
   <app-main-content></app-main-content>
+</section> -->
+<section>
+  <ul class="list-group" *ngIf="isFetching">
+    <li>...Loading</li>
+  </ul>
+  <ul class="list-group" *ngIf="errorMessage != null">
+    <li>{{errorMessage}}</li>
+  </ul>
+  <ul class="list-group" *ngFor="let artifact of allArtifacts"
+        class="list-group-item">
+    
+        <li>{{ artifact.id  }}</li>
+        <li>{{ artifact.title }}</li>
+        <li>{{ artifact.artist_display }}</li>
+        <li>{{ artifact.date_end }}</li>
+        <li>{{ artifact.main_reference_number }}</li>
+        <li>{{ artifact.place_of_origin }}</li>
+        <li>{{ artifact.medium_display }}</li>
+        <li>{{ artifact.inscriptions }}</li>
+        <li>{{ artifact.dimensions }}</li>
+        <li>{{ artifact.credit_line }}</li>     
+  </ul>
 </section>
 </div>

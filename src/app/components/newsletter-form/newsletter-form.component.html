@@ -1,0 +1,44 @@
+<h3>Newsletter</h3>
+<!-- <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+    <div class="mb-3">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" #name="ngModel" ngModel required maxlength="50" minlength="3">
+            <div *ngIf="name.invalid && name.touched"><small> Please enter a valid name </small></div>
+            <div *ngIf="name.errors?.['maxlength']"><small> Please enter less than 50 characters</small></div>
+            <div *ngIf="name.errors?.['minlength']"><small> Please enter more than 3 characters</small></div>
+          </div>
+          
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" #email="ngModel" ngModel required email>
+      <div *ngIf="email.invalid && email.touched"  class="form-text"><small>Please enter a valid email address</small></div>
+    </div>
+  
+    <input type="submit" value="Sign-up"  class="btn btn-primary" [disabled]="!signUpForm.valid" />
+  </form> -->
+
+  <h3>Newsletter 2 Reactive </h3>
+<form [formGroup]="reactiveForm" #signUpForm2="ngForm" (ngSubmit)="onSubmit()" *ngIf="!isSubmitted ">
+    <div class="mb-3">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name">
+            <div *ngIf="!reactiveForm.get('name').valid && reactiveForm.get('name').touched"><small> Please enter a valid name </small></div>
+            <div *ngIf="reactiveForm.get('name').errors?.['maxlength']"><small> Please enter less than 50 characters</small></div>
+            <div *ngIf="reactiveForm.get('name').errors?.['minlength']"><small> Please enter more than 3 characters</small></div>
+            <div *ngIf="reactiveForm.get('name').errors?.['pattern']"><small> Please enter only AlphaNumeric Charcters</small></div>
+          </div>
+          
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" formControlName="email">
+      <div *ngIf="!reactiveForm.get('email').valid && reactiveForm.get('email').touched" class="form-text"><small>Please enter a valid email address</small></div>
+    </div>
+  
+    <input type="submit" value="Sign-up"  class="btn btn-primary" />
+  </form>
+
+  <div *ngIf="isSubmitted">
+    <span>
+         Thank you for your submission!
+  </span>
+</div>
