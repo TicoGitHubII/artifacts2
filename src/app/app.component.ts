@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/internal/operators/map';
-import { Artifact } from 'src/assets/artifact';
+import {
+  ActivatedRoute,
+  ActivationEnd,
+  NavigationEnd,
+  Router,
+} from '@angular/router';
+import { filter, map, tap, scan } from 'rxjs/operators';
+import { Artifact } from 'src/app/model/artifact';
 
 import { ArtifactService } from './services/artifact.service';
 
@@ -10,9 +16,9 @@ import { ArtifactService } from './services/artifact.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent implements OnInit {
   title = 'test';
+
   allArtifacts: Artifact[] = [];
   artwork: Artifact[] = [];
   isFetching: boolean = false;
@@ -21,19 +27,20 @@ export class AppComponent implements OnInit {
   constructor(private artifactService: ArtifactService) {}
 
   ngOnInit() {
-   
-    this.artifactService.getArtifacts().subscribe( 
+    this.artifactService.getArtifacts().subscribe(
       (artifacts) => {
-        this.allArtifacts = artifacts;
         this.isFetching = true;
+
+        this.allArtifacts = artifacts;
+
         console.log(artifacts);
+
         this.isFetching = false;
       },
       (error) => {
         this.errorMessage = error.message;
       }
     );
-    this.artifactService.getOtherArtifacts()
+    this.artifactService.getOtherArtifacts();
   }
-  
 }

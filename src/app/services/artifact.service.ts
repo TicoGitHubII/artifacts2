@@ -7,8 +7,8 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
-import { Artifact } from 'src/assets/artifact';
-import { OtherArtifact } from 'src/assets/otherArtifacts';
+import { Artifact } from 'src/app/model/artifact';
+import { OtherArtifact } from 'src/app/model/otherArtifacts';
 
 @Injectable({
   providedIn: 'root',

@@ -2,14 +2,14 @@
 <div class="container-fluid">
 <nav>
   <app-nav></app-nav>
+ 
 </nav>
 <header>
-  <app-header></app-header>
+  <app-header>
+  </app-header>
 </header>
 <router-outlet></router-outlet>
-<!-- <section>
-  <app-main-content></app-main-content>
-</section> -->
+
 <section>
   <ul class="list-group" *ngIf="isFetching">
     <li>...Loading</li>

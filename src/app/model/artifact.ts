@@ -10,4 +10,5 @@ export class Artifact {
   inscriptions: string;
   dimensions: number;
   credit_line: string;
+  department_title: string;
 }

@@ -1,0 +1,6 @@
+
+<ul class="breadcrumb">
+    <li class="navbar-nav" *ngFor="let breadcrumb of breadcrumbs">
+        <a [routerLink]='[breadcrumb.url, breadcrumb.params]' routerLinkActive='active'>{{ breadcrumb.label }}</a>
+
+</ul>
