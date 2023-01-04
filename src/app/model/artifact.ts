@@ -1,4 +1,5 @@
 export class Artifact {
+
   id?: string;
   title: string;
   date_start: number;

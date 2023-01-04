@@ -1,5 +1,17 @@
-<div class="card " style="top:50%">
-    <div class="card-body">
-      This is some text within a card body 2.
-    </div>
-  </div>
+<div class="card d-flex align-items-start" style="top:50%">
+  <div class="card-body  ">
+    
+     <ul class="list-group list-group-flush d-flex align-items-start" 
+     *ngFor="let item of artwork  "  >
+    
+       <li class="list-group-item  border-bottom-0">{{item.department_title}}<span></span></li>
+       <!-- <li class="list-group-item border-bottom-0">{{artifact.date_start}}</li>
+       <li class=" list-group-item text-muted border-bottom-0">Orign</li>
+       <li class=" list-group-item fw-bold border-bottom-0">{{artifact.place_of_origin}}</li>
+
+       <li class=" list-group-item text-muted border-bottom-0">Medium</li>
+       <li class=" list-group-item fw-bold border-bottom-0">{{artifact.medium_display}}</li> -->
+
+     </ul>
+</div>
+</div>

@@ -8,7 +8,6 @@ import {
 } from '@angular/router';
 import { filter, map, tap, scan } from 'rxjs/operators';
 import { Artifact } from 'src/app/model/artifact';
-
 import { ArtifactService } from './services/artifact.service';
 
 @Component({
@@ -19,28 +18,29 @@ import { ArtifactService } from './services/artifact.service';
 export class AppComponent implements OnInit {
   title = 'test';
 
-  allArtifacts: Artifact[] = [];
-  artwork: Artifact[] = [];
-  isFetching: boolean = false;
-  errorMessage: string = null;
+  // allArtifacts: Artifact[] = [];
+  // artwork: Artifact[] = [];
+  // isFetching: boolean = false;
+  // errorMessage: string = null;
 
   constructor(private artifactService: ArtifactService) {}
 
   ngOnInit() {
-    this.artifactService.getArtifacts().subscribe(
-      (artifacts) => {
-        this.isFetching = true;
+  //   this.artifactService.getArtifacts().subscribe(
+  //     (artifacts) => {
+  //       this.isFetching = true;
 
-        this.allArtifacts = artifacts;
+  //       this.allArtifacts = artifacts;
 
-        console.log(artifacts);
+  //       console.log(artifacts);
 
-        this.isFetching = false;
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
-    this.artifactService.getOtherArtifacts();
-  }
+  //       this.isFetching = false;
+  //     },
+  //     (error) => {
+  //       this.errorMessage = error.message;
+  //     }
+  //   );
+  //   this.artifactService.getOtherArtifacts();
+  // }
+}
 }

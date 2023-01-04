@@ -1,5 +1,40 @@
-<div class="card" style="top:50%">
+<div class="card d-flex align-items-start" style="top:50%">
     <div class="card-body  ">
-      This is some text within a card body.
-    </div>
+      
+       <ul class="list-group list-group-flush d-flex align-items-start" 
+       *ngFor="let artifact of allArtifacts  "  >
+      
+         <li class="list-group-item  border-bottom-0">{{artifact.title}}<span></span></li>
+         <!-- <li class="list-group-item border-bottom-0">{{artifact.date_start}}</li>
+         <li class=" list-group-item text-muted border-bottom-0">Orign</li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.place_of_origin}}</li>
+
+         <li class=" list-group-item text-muted border-bottom-0">Medium</li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.medium_display}}</li>
+
+         <li class=" list-group-item text-muted border-bottom-0">Inscriptions</li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.inscriptions}}</li>
+
+         <li class=" list-group-item text-muted border-bottom-0">Dimensions</li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.dimensions}}</li>
+
+         <li class=" list-group-item text-muted border-bottom-0">Credit Line </li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.credit_line}}</li>
+
+         <li class=" list-group-item text-muted border-bottom-0">Reference Number</li>
+         <li class=" list-group-item fw-bold border-bottom-0">{{artifact.main_reference_number}}</li> -->
+       </ul>
   </div>
+</div>
+<!-- // id?: data.id,
+// title: data.date_start,
+// date_start: data.date_start,
+// date_end: number,
+// artist_display: string,
+// main_reference_number: number,
+// place_of_origin: string,
+// medium_display: string,
+// inscriptions: string,
+// dimensions: number,
+// credit_line: string,
+// department_title: string -->

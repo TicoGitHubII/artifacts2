@@ -1,8 +1,8 @@
 export class OtherArtifact {
-  id?: string;
+  
+    id: any;
   title: string;
   date_start?: number;
   department_title:string;
-
- 
+  
 }

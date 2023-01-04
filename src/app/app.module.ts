@@ -15,7 +15,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 
 import { ArtifactService } from './services/artifact.service';
 import{BreadcrumbService} from './services/breadcrumb.service';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { Artifact3Component } from './components/artifact3/artifact3.component'
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
     NewsletterFormComponent,
     BreadcrumbComponent,
     HomeComponent,
+    Artifact3Component,
   ],
   imports: [
     BrowserModule,
