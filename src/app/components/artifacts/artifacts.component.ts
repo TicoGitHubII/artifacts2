@@ -12,10 +12,7 @@ export class ArtifactsComponent implements OnInit{
   title: 'Artifacts'
   constructor(private  route: ActivatedRoute) { }
   ngOnInit() {
-
-
-
-    
+   
   }
 
 }
