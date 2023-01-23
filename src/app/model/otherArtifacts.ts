@@ -1,6 +1,6 @@
-export class OtherArtifact {
+export class OtherArtifacts {
   
-    id: any;
+  id: number;
   title: string;
   date_start?: number;
   department_title:string;

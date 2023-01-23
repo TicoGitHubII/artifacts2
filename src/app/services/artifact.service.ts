@@ -8,13 +8,14 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map, mergeMap, filter } from 'rxjs/operators';
 import { Artifact } from 'src/app/model/artifact';
-import { OtherArtifact } from 'src/app/model/otherArtifacts';
+import { OtherArtifacts } from 'src/app/model/otherArtifacts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArtifactService {
   private baseURL = 'https://api.artic.edu/api/v1/artworks/120081';
+  private baseURL1 = 'https://api.artic.edu/api/v1/artworks/';
   private baseURL2 = 'https://api.artic.edu/api/v1/artworks/search'
   constructor(private http: HttpClient) {}
 
@@ -25,48 +26,23 @@ export class ArtifactService {
   };
 
   // Get
-  public getArtifacts() {
-     // Headers
-        // return this.http.get<Artifact[]>(this.baseURL) : Observable<Artifact[]
-        return this.http.get(this.baseURL,  { responseType: 'json' })
+  public getArtifacts(): Observable<Artifact[]>  {
+     // Headers: Observable<Artifact[]>
+        //  return this.http.get<Artifact[]>(this.baseURL)
+        return this.http.get<Artifact[]>(this.baseURL)
   }
-  public getArtifact(artwork:string) {
-    // Headers
-    let params = new HttpParams().set('param', artwork)
-       return this.http.get(this.baseURL, { responseType: 'json' }).pipe(
-     map((response: { [key: string]: Artifact }) => {
-       const artifacts = []
 
-       for (const key in response) {
-         if (response.hasOwnProperty(key)) {
-           artifacts.push({ ...response[key] });
-         }
-       }
-       return artifacts;
-     })
-     // ,
-     // catchError((error) => {
-     //   return throwError(error);
-     // })
-   );
+  public getArtwork(id:number) {
+    // Headers
+    // let params = new HttpParams().set('id',id)
+       return this.http.get(this.baseURL1 + id)
  }
 
-  public getOtherArtifacts() {
+  public getOtherArtifacts(): Observable<OtherArtifacts[]> {
     // Params
     const params = new HttpParams().set('q','thomas_doughty')
-       return this.http.get(this.baseURL2, { 'params' : params })
-       .pipe(
-     map((response: { [key: string]: OtherArtifact }) => {
-       const otherArtifacts = [];
-
-       for (const key in response) {
-         if (response.hasOwnProperty(key)) {
-          otherArtifacts.push({ ...response[key] });
-         }
-       }
-       return otherArtifacts;
-     })
-   )
+       return this.http.get<OtherArtifacts[]>(this.baseURL2, { 'params' : params })
+ 
  }
 
 

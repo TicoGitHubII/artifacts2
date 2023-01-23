@@ -1,6 +1,6 @@
 export class Artifact {
 
-  id?: string;
+id: number;
   title: string;
   date_start: number;
   date_end: number;
@@ -11,5 +11,9 @@ export class Artifact {
   inscriptions: string;
   dimensions: number;
   credit_line: string;
-  department_title: string;
+  department_title: string
+
+
 }
+
+

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 import { Artifact } from 'src/app/model/artifact';
-import { ArtifactCardComponent } from '../artifact-card/artifact-card.component';
 
 @Component({
   selector: 'app-artifacts',
@@ -11,11 +10,10 @@ import { ArtifactCardComponent } from '../artifact-card/artifact-card.component'
 export class ArtifactsComponent implements OnInit{
 
   title: 'Artifacts'
-  image: any[]
-  constructor(private  route: ActivatedRoute, private artifactComponent :ArtifactCardComponent) { }
+  constructor(private  route: ActivatedRoute) { }
   ngOnInit() {
 
-   this.image = this.artifactComponent.allArtifacts
+
 
     
   }

@@ -1,42 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { Artifact } from 'src/app/model/artifact';
 import { ArtifactService } from 'src/app/services/artifact.service';
-import{map} from 'rxjs'
-
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-artifact-card',
   templateUrl: './artifact-card.component.html',
-  styleUrls: ['./artifact-card.component.scss']
+  styleUrls: ['./artifact-card.component.scss'],
 })
 export class ArtifactCardComponent implements OnInit {
-  allArtifacts: Artifact[] = [];
-  artwork: Artifact[] = [];
+  allArtifacts: Artifact[];
+
   isFetching: boolean = false;
   errorMessage: string = null;
 
   constructor(private artifactService: ArtifactService) {}
 
   ngOnInit() {
-    this.artifactService.getArtifacts().pipe(
-      map((data) => {
-        return data['data'] ;
-      }
-    ))
-    .subscribe(
-      (artifacts) => {
-        this.isFetching = true;
+    this.artifactService
+      .getArtifacts()
+      .pipe(
+        map((response) => {
+        
+          return response;
+        })
+        // ,
+        // catchError((error) => {
+        //   return throwError(error);
+        // })
+      )
+      .subscribe(
+        (data) => {
+          this.isFetching = true;
 
-        this.allArtifacts = artifacts
+        
+          this.allArtifacts = data;
+      
 
-        console.log(artifacts);
+          console.log( 'allArtifacts: ' + this.allArtifacts);
 
-        this.isFetching = false;
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
-   
+          this.isFetching = false;
+        },
+        (error) => {
+          this.errorMessage = error.message;
+        }
+      );
   }
 }
