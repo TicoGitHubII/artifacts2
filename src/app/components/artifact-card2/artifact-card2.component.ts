@@ -25,7 +25,9 @@ export class ArtifactCard2Component implements OnInit {
   artArr: any[] =[];
 
   constructor(private artifactService: ArtifactService) {}
-
+  trackByFn(index: number, item: any) {
+    return item.key; // or any unique identifier for the key-value pair
+  }
   ngOnInit() {
     this.artifactService
       .getOtherArtifacts()
@@ -66,7 +68,7 @@ export class ArtifactCard2Component implements OnInit {
                    }
                   this.artwork_item
                            //Object.keys(response).map(key => response[key]);
-                  console.log( `artwork_item are here ${this.artwork_item} \n and artArr is this  ${this.artArr} `  )
+                  console.log( `artwork_item are here ${this.artwork_item} \n and artArr is this  ${Object.entries(this.artArr[0]['val'])} `  )
                   for (const object of this.artArr) {
                     console.log(object);
                   }
@@ -75,5 +77,7 @@ export class ArtifactCard2Component implements OnInit {
 
         console.log('OtherArtifacts => ' + Object.entries(this.artworks.at(0)));
       });
+
+     
   }
 }
