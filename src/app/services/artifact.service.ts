@@ -9,6 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map, mergeMap, filter } from 'rxjs/operators';
 import { Artifact } from 'src/app/model/artifact';
 import { OtherArtifacts } from 'src/app/model/otherArtifacts';
+import { Artifacts2 } from '../model/artifacts2';
 
 @Injectable({
   providedIn: 'root',
