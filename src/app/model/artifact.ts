@@ -11,7 +11,8 @@ id: number;
   inscriptions: string;
   dimensions: number;
   credit_line: string;
-  department_title: string
+  department_title: string;
+  thumbnail: [];
 
 
 }
